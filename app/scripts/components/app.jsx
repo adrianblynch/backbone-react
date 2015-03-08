@@ -13,12 +13,17 @@ define([
     'use strict';
 
     var App = function () {
-        var country = new CountryHistoricalData([], { name: 'united-states' });
+        var country = {
+            name: 'United States',
+            code: 'united-states'
+        }
+        var countryData = new CountryHistoricalData([], { country: country });
+        countryData.fetch();
         React.render(
             <div className="col-sm-12">
-                <NavBar />
-                <Breadcrumb />
-                <Chart />
+                <NavBar countryName={countryData.options.country.name} countryData={countryData} />
+                <Breadcrumb countryName={countryData.options.country.name} countryData={countryData} />
+                <Chart countryName={countryData.options.country.name} countryData={countryData} />
             </div>
         , document.getElementById('app'));
     };

@@ -4,21 +4,46 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'react'
-], function ($, _, Backbone, React) {
+    'react',
+    'util/backboneMixin',
+    'components/chartItem'
+], function ($, _, Backbone, React, BackboneMixin, ChartItem) {
     'use strict';
 
     var Chart = React.createClass({
 
-      render: function() {
-        return (
-            <div className="jumbotron">
-                <h1>Hello, world!</h1>
-                <p>...</p>
-                <p><a className="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-            </div>
-        );
-      }
+        mixins: [BackboneMixin],
+
+        getBackboneCollections: function () {
+            return [this.props.countryData];
+        },
+
+        render: function() {
+
+            var chartItems = this.props.countryData.map(function (item) {
+                return (
+                    <ChartItem key={item.cid} item={item} />
+                );
+            }, this);
+
+            return (
+                <div className="jumbotron">
+                    <h1>{this.props.countryName}</h1>
+                    <br />
+                    <table className="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>GDP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {chartItems}
+                        </tbody>
+                    </table>
+                </div>
+            );
+        }
 
     });
 

@@ -11,10 +11,19 @@ define([
 
 		model: CountryHistoricalDataModel,
 
+        options: {
+            country: {
+                name: 'United Kingdom',
+                code: 'united-kingdom'
+            }
+        },
+
+        url: function () {
+            return 'http://api.tradingeconomics.com/historical/country/' + this.options.code + '/indicator/gdp?c=guest:guest';
+        },
+
 		initialize: function(models, options) {
-			var name = options.name || 'united-kingdom';
-  			this.url = 'http://api.tradingeconomics.com/historical/country/' + name + '/indicator/gdp?c=guest:guest';
-            this.fetch();
+			_.extend(this.options, options);
    		}
 
 	});

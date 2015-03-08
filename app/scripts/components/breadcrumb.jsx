@@ -10,15 +10,15 @@ define([
 
     var Breadcrumb = React.createClass({
 
-      render: function() {
-        return (
-            <ul className="breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Library</a></li>
-                <li className="active">Data</li>
-            </ul>
-        );
-      }
+        render: function() {
+            return (
+                <ul className="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Library</a></li>
+                    <li className="active">Data</li>
+                </ul>
+            );
+        }
 
     });
 
