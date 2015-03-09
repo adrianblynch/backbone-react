@@ -97,7 +97,7 @@ define(function () {
         { code: "KIR", name: "Kiribati" },
         { code: "KNA", name: "Saint Kitts and Nevis" },
         { code: "KOR", name: "South Korea" },
-        { code: "KSV", name: "Kosovo" },
+        { code: "UVK", name: "Kosovo" },
         { code: "KWT", name: "Kuwait" },
         { code: "LAO", name: "Laos" },
         { code: "LBN", name: "Lebanon" },
