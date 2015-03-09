@@ -10,7 +10,32 @@ define([
 
     var NavBarView = React.createClass({
 
+        selectCountry: function (country, e) {
+            var el = this.getDOMNode();
+
+            _.extend(this.props.countryData.options, { country: country });
+            this.props.countryData.reset();
+            el.querySelector('.dropdown').className = 'dropdown hidden';
+            el.querySelector('.ajaxLoader').className = 'ajaxLoader';
+            this.props.countryData.fetch().then(function () {
+               el.querySelector('.dropdown').className = 'dropdown';
+               el.querySelector('.ajaxLoader').className = 'ajaxLoader hidden';
+            });
+            e.preventDefault();
+        },
+
         render: function() {
+
+            var countries = this.props.countriesList.map(function (country) {
+                return (
+                    <li key={country.code}>
+                        <a href="#" onClick={this.selectCountry.bind(this, country)}>
+                            {country.name}
+                        </a>
+                    </li>
+                );
+            }, this);
+
             return (
                 <nav className="navbar-default" role="navigation">
 
@@ -24,42 +49,23 @@ define([
                             <span className="icon-bar"></span>
                             <span className="icon-bar"></span>
                           </button>
-                          <a className="navbar-brand" href="#">Brand</a>
+                          <a className="navbar-brand" href="#">Gross Domestic Product by Country</a>
                         </div>
 
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                          <ul className="nav navbar-nav">
-                            <li className="active"><a href="#">Link <span className="sr-only">(current)</span></a></li>
-                            <li><a href="#">Link</a></li>
-                            <li className="dropdown">
-                              <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span className="caret"></span></a>
-                              <ul className="dropdown-menu" role="menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li className="divider"></li>
-                                <li><a href="#">Separated link</a></li>
-                                <li className="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
-                              </ul>
-                            </li>
-                          </ul>
-
                           <ul className="nav navbar-nav navbar-right">
-                            <li><a href="#">Link</a></li>
                             <li className="dropdown">
-                              <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span className="caret"></span></a>
+                              <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Choose country <span className="caret"></span></a>
                               <ul className="dropdown-menu" role="menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li className="divider"></li>
-                                <li><a href="#">Separated link</a></li>
+                                {countries}
                               </ul>
                             </li>
+                            <div className="ajaxLoader hidden">
+                                <img src="images/ajax-loader.gif" alt="loading..." />
+                            </div>
                           </ul>
-
                         </div>
+
                       </div>
                     </nav>
 

@@ -14,8 +14,8 @@ define([
             return (
                 <ul className="breadcrumb">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Library</a></li>
-                    <li className="active">Data</li>
+                    <li><a href="#">GDP</a></li>
+                    <li className="active">{this.props.section}</li>
                 </ul>
             );
         }

@@ -17,7 +17,8 @@ require.config({
         backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/lodash/dist/lodash',
         bootstrap: '../bower_components/sass-bootstrap/dist/js/bootstrap',
-        react: '../bower_components/react/react'
+        react: '../bower_components/react/react',
+        moment: '../bower_components/moment/moment'
     }
 });
 

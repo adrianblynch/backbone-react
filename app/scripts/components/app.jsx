@@ -14,16 +14,14 @@ define([
     'use strict';
 
     var App = function () {
-
-        var country = countriesList[Math.floor(Math.random() * countriesList.length)];
-
+        var index = Math.floor(Math.random() * countriesList.length);
+        var country = countriesList[index];
         var countryData = new CountryHistoricalData([], { country: country });
-        countryData.fetch();
         React.render(
             <div className="col-sm-12">
-                <NavBar countryName={countryData.options.country.name} countryData={countryData} />
-                <Breadcrumb countryName={countryData.options.country.name} countryData={countryData} />
-                <Chart countryName={countryData.options.country.name} countryData={countryData} />
+                <NavBar country={country} countriesList={countriesList} countryData={countryData} />
+                <Breadcrumb section={country.name} />
+                <Chart countryName={country.name} countryData={countryData} />
             </div>
         , document.getElementById('app'));
     };
