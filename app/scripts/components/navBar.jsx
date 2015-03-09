@@ -11,17 +11,19 @@ define([
     var NavBarView = React.createClass({
 
         selectCountry: function (country, e) {
+
             var el = this.getDOMNode();
 
-            _.extend(this.props.countryData.options, { country: country });
-            this.props.countryData.reset();
             el.querySelector('.dropdown').className = 'dropdown hidden';
             el.querySelector('.ajaxLoader').className = 'ajaxLoader';
-            this.props.countryData.fetch().then(function () {
+
+            this.props.updateData(country).then(function () {
                el.querySelector('.dropdown').className = 'dropdown';
                el.querySelector('.ajaxLoader').className = 'ajaxLoader hidden';
             });
+
             e.preventDefault();
+
         },
 
         render: function() {

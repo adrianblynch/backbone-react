@@ -249,9 +249,9 @@ module.exports = function (grunt) {
         react: {
             files: {
                 expand: true,
-                cwd: '<%= yeoman.app %>/scripts/components',
+                cwd: '<%= yeoman.app %>/scripts',
                 src: ['**/*.jsx'],
-                dest: '.tmp/scripts/components',
+                dest: '.tmp/scripts',
                 ext: '.js'
             }
         }

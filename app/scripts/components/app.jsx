@@ -5,25 +5,45 @@ define([
     'underscore',
     'backbone',
     'react',
-    'collections/countryHistoricalData',
     'components/NavBar',
     'components/Breadcrumb',
-    'components/Chart',
-    'util/countriesList'
-], function ($, _, Backbone, React, CountryHistoricalData, NavBar, Breadcrumb, Chart, countriesList) {
+    'components/Chart'
+], function ($, _, Backbone, React, NavBar, Breadcrumb, Chart) {
     'use strict';
 
-    var App = function () {
-        var country = countriesList[_.random(countriesList.length)];
-        var countryData = new CountryHistoricalData([], { country: country });
-        React.render(
-            <div className="col-sm-12">
-                <NavBar country={country} countriesList={countriesList} countryData={countryData} />
-                <Breadcrumb section={country.name} />
-                <Chart countryName={country.name} countryData={countryData} />
-            </div>
-        , document.getElementById('app'));
-    };
+    var App = React.createClass({
+
+        getInitialState: function () {
+            return {
+                country: this.props.country,
+            };
+        },
+
+        updateData: function (country) {
+            this.setState({ country: country });
+            _.extend(this.props.countryData.options, { country: country });
+            this.props.countryData.reset();
+            return this.props.countryData.fetch();
+        },
+
+        render: function() {
+            return (
+                <div className="col-sm-12">
+                    <NavBar
+                        country={this.state.country}
+                        countriesList={this.props.countriesList}
+                        countryData={this.props.countryData}
+                        updateData={this.updateData} />
+                    <Breadcrumb
+                        section={this.state.country.name} />
+                    <Chart
+                        countryName={this.state.country.name}
+                        countryData={this.props.countryData} />
+                </div>
+            );
+        }
+
+    });
 
     return App;
 });

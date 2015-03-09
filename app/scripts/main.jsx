@@ -25,8 +25,16 @@ require.config({
 require([
     'backbone',
     'react',
-	'components/app'
-], function (Backbone, React, App) {
+	'components/app',
+    'util/countriesList',
+    'collections/countryHistoricalData'
+], function (Backbone, React, App, countriesList, CountryHistoricalData) {
     Backbone.history.start();
-    new App();
+    var country = countriesList[_.random(countriesList.length)];
+    var countryData = new CountryHistoricalData([], { country: country });
+    React.render(
+        <div className="col-sm-12">
+            <App country={country} countryData={countryData} countriesList={countriesList} />
+        </div>,
+    document.getElementById('app'));
 });

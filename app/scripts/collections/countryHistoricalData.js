@@ -10,7 +10,7 @@ define([
 
     var CountryHistoricalData = Backbone.Collection.extend({
 
-		model: CountryHistoricalDataModel,
+        model: CountryHistoricalDataModel,
 
         options: {
             country: {
@@ -20,14 +20,15 @@ define([
         },
 
         url: function () {
+            // International Monetary Fund Cross Country Macroeconomic Statistics
             return 'https://www.quandl.com/api/v1/datasets/ODA/' + this.options.country.code +
                 '_NGDP.json?trim_end=' + moment().format('YYYY-MM-DD');
         },
 
-		initialize: function(models, options) {
-			_.extend(this.options, options);
+        initialize: function(models, options) {
+            _.extend(this.options, options);
             this.fetch();
-   		},
+        },
 
         fetch: function () {
             return Backbone.Collection.prototype.fetch.call(this, arguments);
@@ -42,7 +43,7 @@ define([
             return data;
         }
 
-	});
+    });
 
     return CountryHistoricalData;
 });
