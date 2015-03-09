@@ -14,8 +14,7 @@ define([
     'use strict';
 
     var App = function () {
-        var index = Math.floor(Math.random() * countriesList.length);
-        var country = countriesList[index];
+        var country = countriesList[_.random(countriesList.length)];
         var countryData = new CountryHistoricalData([], { country: country });
         React.render(
             <div className="col-sm-12">
