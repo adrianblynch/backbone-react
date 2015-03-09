@@ -9,14 +9,14 @@ define([
     'components/NavBar',
     'components/Breadcrumb',
     'components/Chart',
-], function ($, _, Backbone, React, CountryHistoricalData, NavBar, Breadcrumb, Chart) {
+    'util/countriesList'
+], function ($, _, Backbone, React, CountryHistoricalData, NavBar, Breadcrumb, Chart, countriesList) {
     'use strict';
 
     var App = function () {
-        var country = {
-            name: 'United States',
-            code: 'united-states'
-        }
+
+        var country = countriesList[Math.floor(Math.random() * countriesList.length)];
+
         var countryData = new CountryHistoricalData([], { country: country });
         countryData.fetch();
         React.render(

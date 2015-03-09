@@ -17,7 +17,7 @@ define([
             var value = this.props.item.get('Value');
             return (
                 <tr>
-                    <td width="10%" className="text-muted">{year}</td>
+                    <td className="text-muted">{year}</td>
                     <td className="amount">{value} $bn</td>
                 </tr>
             );

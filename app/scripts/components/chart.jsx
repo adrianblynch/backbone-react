@@ -33,8 +33,8 @@ define([
                     <table className="table table-hover">
                         <thead>
                             <tr>
-                                <th>Year</th>
-                                <th>GDP</th>
+                                <th width="10%">Year</th>
+                                <th className="amount">GDP</th>
                             </tr>
                         </thead>
                         <tbody>
