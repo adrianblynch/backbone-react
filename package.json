@@ -24,6 +24,7 @@
     "grunt-react": "^0.10.0",
     "grunt-requirejs": "^0.4.2",
     "grunt-rev": "^0.1.0",
+    "grunt-sass": "^0.18.1",
     "grunt-usemin": "^0.1.12",
     "jshint-stylish": "^1.0.0",
     "load-grunt-tasks": "^0.6.0",

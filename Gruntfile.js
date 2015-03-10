@@ -143,6 +143,19 @@ module.exports = function (grunt) {
                 }
             }
         },
+        sass: {
+            options: {
+                sourceMap: true,
+                includePaths: [
+                  'app/bower_components'
+                ]
+            },
+            dist: {
+                files: {
+                    '.tmp/styles/main.css': '<%= yeoman.app %>/styles/main.scss'
+                }
+            }
+        },
         requirejs: {
             dist: {
                 options: {
@@ -310,7 +323,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'react',
-        'compass:dist',
+        'sass',
         'useminPrepare',
         'requirejs',
         'imagemin',
