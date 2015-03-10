@@ -145,24 +145,24 @@ module.exports = function (grunt) {
         },
         requirejs: {
             dist: {
-                // Options: https://github.com/jrburke/r.js/blob/master/build/example.build.js
                 options: {
-                    baseUrl: '<%= yeoman.app %>/scripts',
+                    baseUrl: '.tmp/scripts',
                     optimize: 'none',
                     paths: {
-                        'jquery': '../../<%= yeoman.app %>/bower_components/jquery/dist/jquery',
-                        'underscore': '../../<%= yeoman.app %>/bower_components/lodash/dist/lodash',
-                        'backbone': '../../<%= yeoman.app %>/bower_components/backbone/backbone'
+                        collections: './collections',
+                        models: './models',
+                        components: './components',
+                        util: './util',
+                        jquery: '../../<%= yeoman.app %>/bower_components/jquery/dist/jquery',
+                        backbone: '../../<%= yeoman.app %>/bower_components/backbone/backbone',
+                        underscore: '../../<%= yeoman.app %>/bower_components/lodash/dist/lodash',
+                        bootstrap: '../../<%= yeoman.app %>/bower_components/sass-bootstrap/dist/js/bootstrap',
+                        react: '../../<%= yeoman.app %>/bower_components/react/react',
+                        moment: '../../<%= yeoman.app %>/bower_components/moment/moment'
                     },
-                    // TODO: Figure out how to make sourcemaps work with grunt-usemin
-                    // https://github.com/yeoman/grunt-usemin/issues/30
-                    //generateSourceMaps: true,
-                    // required to support SourceMaps
-                    // http://requirejs.org/docs/errors.html#sourcemapcomments
                     preserveLicenseComments: false,
                     useStrict: true,
                     wrap: true
-                    //uglify2: {} // https://github.com/mishoo/UglifyJS2
                 }
             }
         },
@@ -250,7 +250,7 @@ module.exports = function (grunt) {
             files: {
                 expand: true,
                 cwd: '<%= yeoman.app %>/scripts',
-                src: ['**/*.jsx'],
+                src: ['**/*.{jsx,js}'],
                 dest: '.tmp/scripts',
                 ext: '.js'
             }
@@ -281,7 +281,7 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'react',
-           'compass:server',
+            'compass:server',
             'connect:livereload',
             'open:server',
             'watch'
@@ -309,7 +309,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'createDefaultTemplate',
         'react',
         'compass:dist',
         'useminPrepare',
