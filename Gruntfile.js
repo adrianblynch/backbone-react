@@ -160,22 +160,22 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     baseUrl: '.tmp/scripts',
-                    optimize: 'none',
+                    shim: {
+                        bootstrap: {
+                            deps: ['jquery'],
+                            exports: 'jquery'
+                        }
+                    },
                     paths: {
-                        collections: './collections',
-                        models: './models',
-                        components: './components',
-                        util: './util',
                         jquery: '../../<%= yeoman.app %>/bower_components/jquery/dist/jquery',
                         backbone: '../../<%= yeoman.app %>/bower_components/backbone/backbone',
                         underscore: '../../<%= yeoman.app %>/bower_components/lodash/dist/lodash',
-                        bootstrap: '../../<%= yeoman.app %>/bower_components/sass-bootstrap/dist/js/bootstrap',
+                        bootstrap: '../../<%= yeoman.app %>/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap',
                         react: '../../<%= yeoman.app %>/bower_components/react/react',
                         moment: '../../<%= yeoman.app %>/bower_components/moment/moment'
                     },
-                    preserveLicenseComments: false,
-                    useStrict: true,
-                    wrap: true
+                    removeCombined: true,
+                    useStrict: true
                 }
             }
         },
@@ -233,7 +233,8 @@ module.exports = function (grunt) {
                         '*.{ico,txt}',
                         'images/{,*/}*.{webp,gif}',
                         'styles/fonts/{,*/}*.*',
-                        'bower_components/sass-bootstrap/fonts/*.*'
+                        'bower_components/sass-bootstrap/fonts/*.*',
+                        'bower_components/requirejs/require.js'
                     ]
                 }, {
                     src: 'node_modules/apache-server-configs/dist/.htaccess',
@@ -308,7 +309,7 @@ module.exports = function (grunt) {
                 'react',
                 'compass',
                 'connect:test',
-                'mocha',
+                'mocha'
             ];
 
         if(!isConnected) {
