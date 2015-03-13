@@ -5,3 +5,9 @@ before_script:
 - npm install -g bower grunt-cli
 - bower install
 - grunt build
+deploy:
+  provider: divshot
+  environment: development
+  skip_cleanup: true
+  api_key:
+    secure: dzQMmTXjIHgBXtGYBsNBJB64/hCWwvd57uN+AC38BRzF26GaM176Pf8m23HD1AHCj3sJNPKlU/J5fRRtj0x4IWjwBbo88PhAUKTSYXnHTO+QyB/bbPlnYZv5P+8/c5acYF6U/JXeC6GTsc1H966QdC5u2PGZxh0WA9RH9H7FBQE=
