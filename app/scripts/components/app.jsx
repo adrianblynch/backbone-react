@@ -5,9 +5,9 @@ define([
     'underscore',
     'backbone',
     'react',
-    'components/NavBar',
-    'components/Breadcrumb',
-    'components/Chart'
+    'components/navBar',
+    'components/breadcrumb',
+    'components/chart'
 ], function ($, _, Backbone, React, NavBar, Breadcrumb, Chart) {
     'use strict';
 
