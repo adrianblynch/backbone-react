@@ -8,7 +8,7 @@ define([
 ], function ($, _, Backbone, React, BackboneMixin) {
     'use strict';
 
-    var ChartItem = React.createClass({
+    var TableItem = React.createClass({
 
         render: function() {
             var dateTime = this.props.item.get('Date');
@@ -25,5 +25,5 @@ define([
 
     });
 
-    return ChartItem;
+    return TableItem;
 });

@@ -6,11 +6,11 @@ define([
     'backbone',
     'react',
     'util/backboneMixin',
-    'components/chartItem'
-], function ($, _, Backbone, React, BackboneMixin, ChartItem) {
+    'components/tableItem'
+], function ($, _, Backbone, React, BackboneMixin, TableItem) {
     'use strict';
 
-    var Chart = React.createClass({
+    var Table = React.createClass({
 
         mixins: [BackboneMixin],
 
@@ -20,9 +20,9 @@ define([
 
         render: function() {
 
-            var chartItems = this.props.countryData.map(function (item) {
+            var tableItems = this.props.countryData.map(function (item) {
                 return (
-                    <ChartItem key={item.cid} item={item} />
+                    <TableItem key={item.cid} item={item} />
                 );
             }, this);
 
@@ -38,7 +38,7 @@ define([
                             </tr>
                         </thead>
                         <tbody>
-                            {chartItems}
+                            {tableItems}
                         </tbody>
                     </table>
                 </div>
@@ -47,5 +47,5 @@ define([
 
     });
 
-    return Chart;
+    return Table;
 });

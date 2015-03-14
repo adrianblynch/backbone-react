@@ -7,8 +7,8 @@ define([
     'react',
     'components/navBar',
     'components/breadcrumb',
-    'components/chart'
-], function ($, _, Backbone, React, NavBar, Breadcrumb, Chart) {
+    'components/table'
+], function ($, _, Backbone, React, NavBar, Breadcrumb, Table) {
     'use strict';
 
     var App = React.createClass({
@@ -36,7 +36,7 @@ define([
                         updateData={this.updateData} />
                     <Breadcrumb
                         section={this.state.country.name} />
-                    <Chart
+                    <Table
                         countryName={this.state.country.name}
                         countryData={this.props.countryData} />
                 </div>
