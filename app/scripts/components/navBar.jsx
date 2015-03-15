@@ -18,8 +18,8 @@ define([
             el.querySelector('.ajaxLoader').className = 'ajaxLoader';
 
             this.props.updateData(country).then(function () {
-               el.querySelector('.dropdown').className = 'dropdown';
-               el.querySelector('.ajaxLoader').className = 'ajaxLoader hidden';
+                el.querySelector('.dropdown').className = 'dropdown';
+                el.querySelector('.ajaxLoader').className = 'ajaxLoader hidden';
             });
 
             e.preventDefault();
@@ -55,9 +55,15 @@ define([
                         </div>
 
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                          <ul className="nav navbar-nav navbar-right">
+
+                        <ul className="nav navbar-nav navbar-right">
+                            <li className="active"><a href="#">Chart</a></li>
+                            <li><a href="#">Table</a></li>
+
                             <li className="dropdown">
-                              <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Choose country <span className="caret"></span></a>
+                              <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Country<span className="caret"></span>
+                              </a>
                               <ul className="dropdown-menu" role="menu">
                                 {countries}
                               </ul>
