@@ -1,5 +1,5 @@
 define(function (require) {
-    var rr = require('../../bower_components/route-recognizer/dist/route-recognizer');
+    var rr = require('original-route-recognizer');
 
     return {
         default: rr

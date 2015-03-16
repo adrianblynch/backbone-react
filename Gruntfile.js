@@ -160,19 +160,16 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     baseUrl: '.tmp/scripts',
-                    shim: {
-                        bootstrap: {
-                            deps: ['jquery'],
-                            exports: 'jquery'
-                        }
-                    },
                     paths: {
                         jquery: '../../<%= yeoman.app %>/bower_components/jquery/dist/jquery',
                         backbone: '../../<%= yeoman.app %>/bower_components/backbone/backbone',
                         underscore: '../../<%= yeoman.app %>/bower_components/lodash/dist/lodash',
                         bootstrap: '../../<%= yeoman.app %>/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap',
                         react: '../../<%= yeoman.app %>/bower_components/react/react',
-                        moment: '../../<%= yeoman.app %>/bower_components/moment/moment'
+                        moment: '../../<%= yeoman.app %>/bower_components/moment/moment',
+                        router: '../../<%= yeoman.app %>/bower_components/router.js/dist/router.amd',
+                        'original-route-recognizer': '../../<%= yeoman.app %>/bower_components/route-recognizer/dist/route-recognizer',
+                        'original-rsvp': '../../<%= yeoman.app %>/bower_components/rsvp/rsvp'
                     },
                     removeCombined: true,
                     useStrict: true

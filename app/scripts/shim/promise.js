@@ -1,5 +1,5 @@
 define(function (require) {
-    var rsvp = require('../../bower_components/rsvp/rsvp');
+    var rsvp = require('original-rsvp');
 
     return {
         default: rsvp.Promise
