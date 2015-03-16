@@ -10,7 +10,10 @@
     "requirejs-text": "~2.0.10",
     "modernizr": "~2.7.1",
     "react": "~0.12.2",
-    "moment": "~2.9.0"
+    "moment": "~2.9.0",
+    "router.js": "tildeio/router.js",
+    "rsvp": "~3.0.17",
+    "route-recognizer": "~0.1.5"
   },
   "devDependencies": {}
 }

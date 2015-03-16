@@ -2,12 +2,6 @@
 'use strict';
 
 require.config({
-    shim: {
-        bootstrap: {
-            deps: ['jquery'],
-            exports: 'jquery'
-        }
-    },
     paths: {
         collections: './collections',
         models: './models',
@@ -18,7 +12,21 @@ require.config({
         underscore: '../bower_components/lodash/dist/lodash',
         bootstrap: '../bower_components/sass-bootstrap/dist/js/bootstrap',
         react: '../bower_components/react/react',
-        moment: '../bower_components/moment/moment'
+        moment: '../bower_components/moment/moment',
+        router: '../bower_components/router.js/dist/router.amd'
+    },
+    map: {
+        '*': {
+            'route-recognizer': 'shim/route-recognizer',
+            'rsvp': 'shim/rsvp',
+            'rsvp/promise': 'shim/promise'
+        }
+    },
+    shim: {
+        bootstrap: {
+            deps: ['jquery'],
+            exports: 'jquery'
+        }
     }
 });
 
@@ -27,8 +35,9 @@ require([
     'react',
 	'components/app',
     'util/countriesList',
-    'collections/countryHistoricalData'
-], function (Backbone, React, App, countriesList, CountryHistoricalData) {
+    'collections/countryHistoricalData',
+    'router'
+], function (Backbone, React, App, countriesList, CountryHistoricalData, Router) {
     Backbone.history.start();
     var country = countriesList[_.random(countriesList.length)];
     var countryData = new CountryHistoricalData([], { country: country });
