@@ -37,7 +37,7 @@ define([
                         updateData={this.updateData} />
                     <Breadcrumb
                         section={this.state.country.name} />
-                    <Chart
+                    <Table
                         countryName={this.state.country.name}
                         countryData={this.props.countryData} />
                 </div>
