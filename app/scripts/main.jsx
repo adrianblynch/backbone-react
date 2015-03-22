@@ -1,4 +1,4 @@
-/*global require*/
+/*global define, require*/
 'use strict';
 
 require.config({
@@ -29,11 +29,11 @@ require.config({
             deps: ['jquery'],
             exports: 'jquery'
         }
-    }
+    },
+    waitSeconds: 0
 });
 
 define(function (require) {
-    'use strict';
 
     var Backbone = require('backbone');
     var React = require('react');

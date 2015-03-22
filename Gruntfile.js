@@ -241,18 +241,7 @@ module.exports = function (grunt) {
         },
         bower: {
             all: {
-                rjsConfig: '<%= yeoman.app %>/scripts/main.jsx'
-            }
-        },
-        rev: {
-            dist: {
-                files: {
-                    src: [
-                        '<%= yeoman.dist %>/scripts/{,*/}*.js',
-                        '<%= yeoman.dist %>/styles/{,*/}*.css',
-                        'bower_components/sass-bootstrap/fonts/*.*'
-                    ]
-                }
+                rjsConfig: '<%= yeoman.app %>/scripts/config.js'
             }
         },
         react: {
@@ -328,7 +317,6 @@ module.exports = function (grunt) {
         'cssmin',
         'uglify',
         'copy',
-        'rev',
         'usemin'
     ]);
 
