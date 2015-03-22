@@ -16,7 +16,6 @@ require.config({
         router: '../bower_components/router.js/dist/router.amd',
         'original-route-recognizer': '../bower_components/route-recognizer/dist/route-recognizer',
         'original-rsvp': '../bower_components/rsvp/rsvp'
-
     },
     map: {
         '*': {
@@ -33,20 +32,25 @@ require.config({
     }
 });
 
-require([
-    'backbone',
-    'react',
-	'components/app',
-    'util/countriesList',
-    'collections/countryHistoricalData',
-    'router'
-], function (Backbone, React, App, countriesList, CountryHistoricalData, Router) {
-    Backbone.history.start();
+define(function (require) {
+    'use strict';
+
+    var Backbone = require('backbone');
+    var React = require('react');
+    var App = require('components/app');
+    var CountryHistoricalData = require('collections/countryHistoricalData');
+    var router = require('./mainRouter');
+    var countriesList = require('util/countriesList');
+
     var country = countriesList[_.random(countriesList.length)];
     var countryData = new CountryHistoricalData([], { country: country });
+
     React.render(
         <div className="col-sm-12">
             <App country={country} countryData={countryData} countriesList={countriesList} />
         </div>,
     document.getElementById('app'));
+
+    Backbone.history.start();
+
 });

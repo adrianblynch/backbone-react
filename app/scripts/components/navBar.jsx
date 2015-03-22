@@ -57,8 +57,8 @@ define([
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                         <ul className="nav navbar-nav navbar-right">
-                            <li className="active"><a href="#">Chart</a></li>
-                            <li><a href="#">Table</a></li>
+                            <li><a href="#chart">Chart</a></li>
+                            <li><a href="#table">Table</a></li>
 
                             <li className="dropdown">
                               <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
