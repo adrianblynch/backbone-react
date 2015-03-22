@@ -34,23 +34,7 @@ require.config({
 });
 
 define(function (require) {
-
     var Backbone = require('backbone');
-    var React = require('react');
-    var App = require('components/app');
-    var CountryHistoricalData = require('collections/countryHistoricalData');
-    var router = require('./mainRouter');
-    var countriesList = require('util/countriesList');
-
-    var country = countriesList[_.random(countriesList.length)];
-    var countryData = new CountryHistoricalData([], { country: country });
-
-    React.render(
-        <div className="col-sm-12">
-            <App country={country} countryData={countryData} countriesList={countriesList} />
-        </div>,
-    document.getElementById('app'));
-
+    var router = require('mainRouter');
     Backbone.history.start();
-
 });

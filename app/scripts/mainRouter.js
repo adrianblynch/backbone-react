@@ -8,17 +8,26 @@ define(function (require) {
     var Router = require('router').default;
     var router = new Router();
 
+    var AppRoute = require('routes/app');
+    var IndexRoute = require('routes/index');
+    var CountryRoute = require('routes/country');
+    var TableRoute = require('routes/table');
+    var ChartRoute = require('routes/chart');
+
     var routes = {
-        'index': require('routes/index'),
-        'table': require('routes/table'),
-        'chart': require('routes/chart')
+        'app': new AppRoute(),
+        'index': new IndexRoute(),
+        'country': new CountryRoute(),
+        // 'table': new TableRoute(),
+        // 'chart': new ChartRoute()
     };
 
     /* eslint no-shadow: 0 */
     router.map(function (match) {
-        match('/').to('index');
-        match('/chart').to('chart');
-        match('/table').to('table');
+        match('/').to('app', function (match) {
+            match('/').to('index');
+            match('/:country').to('country');
+        })
     });
 
     router.getHandler = function (name) {

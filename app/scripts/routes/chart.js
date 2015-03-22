@@ -2,13 +2,16 @@
 
 define(function (require) {
 
-    return {
+    var Handler = require('./handler');
 
-        beforeModel: function () {
-            console.log("chart");
+    var ChartRoute = Handler.extend({
+
+        beforeModel: function (transition) {
         }
 
-    };
+    });
+
+    return ChartRoute;
 
 });
 

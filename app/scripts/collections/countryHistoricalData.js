@@ -27,7 +27,6 @@ define([
 
         initialize: function(models, options) {
             _.extend(this.options, options);
-            this.fetch();
         },
 
         fetch: function () {

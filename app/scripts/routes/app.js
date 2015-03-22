@@ -3,15 +3,17 @@
 define(function (require) {
 
     var Handler = require('./handler');
+    var React = require('react');
 
-    var TableRoute = Handler.extend({
+    var AppRoute = Handler.extend({
 
         beforeModel: function (transition) {
+            console.log('app');
         }
 
     });
 
-    return TableRoute;
+    return AppRoute;
 
 });
 

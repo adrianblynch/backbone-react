@@ -15,31 +15,23 @@ define([
     var App = React.createClass({
 
         getInitialState: function () {
+            console.log(this.props.countryData.name);
             return {
-                country: this.props.country,
+                name: this.props.countryData.name,
             };
         },
 
-        updateData: function (country) {
-            this.setState({ country: country });
-            _.extend(this.props.countryData.options, { country: country });
-            this.props.countryData.reset();
-            return this.props.countryData.fetch();
-        },
+        // updateData: function (country) {
+            // this.setState({ country: country });
+            // _.extend(this.props.countryData.options, { country: country });
+            // this.props.countryData.reset();
+            // return this.props.countryData.fetch();
+        // },
 
         render: function() {
             return (
-                <div className="col-sm-12">
-                    <NavBar
-                        country={this.state.country}
-                        countriesList={this.props.countriesList}
-                        countryData={this.props.countryData}
-                        updateData={this.updateData} />
-                    <Breadcrumb
-                        section={this.state.country.name} />
-                    <Table
-                        countryName={this.state.country.name}
-                        countryData={this.props.countryData} />
+                <div>
+                    <Breadcrumb section={this.state.name} />
                 </div>
             );
         }
@@ -47,4 +39,13 @@ define([
     });
 
     return App;
+                    // <NavBar
+                    //     country={this.state.country}
+                    //     countriesList={this.props.countriesList}
+                    //     countryData={this.props.countryData}
+                    //     updateData={this.updateData} />
+                    // <Table
+                    //     countryName={this.state.country.name}
+                    //     countryData={this.props.countryData} />
+
 });
