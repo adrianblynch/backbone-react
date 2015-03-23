@@ -1,37 +1,20 @@
 /*global define*/
 
-define([
-    'jquery',
-    'underscore',
-    'backbone',
-	'react'
-], function ($, _, Backbone, React) {
+define(function (require) {
     'use strict';
+
+    var $ = require('jquery');
+    var React = require('react');
+    var countriesList = require('util/countriesList');
 
     var NavBarView = React.createClass({
 
-        selectCountry: function (country, e) {
-
-            var el = this.getDOMNode();
-
-            el.querySelector('.dropdown').className = 'dropdown hidden';
-            el.querySelector('.ajaxLoader').className = 'ajaxLoader';
-
-            this.props.updateData(country).then(function () {
-                el.querySelector('.dropdown').className = 'dropdown';
-                el.querySelector('.ajaxLoader').className = 'ajaxLoader hidden';
-            });
-
-            e.preventDefault();
-
-        },
-
         render: function() {
 
-            var countries = this.props.countriesList.map(function (country) {
+            var countries = countriesList.map(function (country) {
                 return (
                     <li key={country.code}>
-                        <a href="#" onClick={this.selectCountry.bind(this, country)}>
+                        <a href={'#' + country.code} >
                             {country.name}
                         </a>
                     </li>
@@ -56,7 +39,7 @@ define([
 
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-                        <ul className="nav navbar-nav navbar-right">
+                        <ul className="navBarOptions nav navbar-nav navbar-right">
                             <li><a href="#chart">Chart</a></li>
                             <li><a href="#table">Table</a></li>
 
@@ -68,7 +51,11 @@ define([
                                 {countries}
                               </ul>
                             </li>
-                            <div className="ajaxLoader hidden">
+                          </ul>
+
+
+                        <ul className="nav navbar-nav navbar-right">
+                            <div className="ajaxLoader">
                                 <img src="images/ajax-loader.gif" alt="loading..." />
                             </div>
                           </ul>

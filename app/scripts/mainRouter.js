@@ -7,15 +7,14 @@ define(function (require) {
     var Backbone = require('backbone');
     var Router = require('router').default;
     var router = new Router();
-
-    var AppRoute = require('routes/app');
+//    var AppRoute = require('routes/app');
     var IndexRoute = require('routes/index');
     var CountryRoute = require('routes/country');
-    var TableRoute = require('routes/table');
-    var ChartRoute = require('routes/chart');
+    // var TableRoute = require('routes/table');
+    // var ChartRoute = require('routes/chart');
 
     var routes = {
-        'app': new AppRoute(),
+//        'app': new AppRoute(),
         'index': new IndexRoute(),
         'country': new CountryRoute(),
         // 'table': new TableRoute(),
@@ -24,10 +23,8 @@ define(function (require) {
 
     /* eslint no-shadow: 0 */
     router.map(function (match) {
-        match('/').to('app', function (match) {
-            match('/').to('index');
-            match('/:country').to('country');
-        })
+        match('/').to('index');
+        match('/:country').to('country');
     });
 
     router.getHandler = function (name) {

@@ -1,37 +1,36 @@
 /*global define*/
 
-define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'react',
-    'components/navBar',
-    'components/breadcrumb',
-    'components/table',
-    'components/chart'
-], function ($, _, Backbone, React, NavBar, Breadcrumb, Table, Chart) {
+define(function (require) {
     'use strict';
+
+    var React = require('react');
+    var NavBar = require('components/navBar');
+    var Breadcrumb = require('components/breadcrumb');
+    var Table = require('components/table');
+    //var Chart = require('components/chart');
 
     var App = React.createClass({
 
-        getInitialState: function () {
-            console.log(this.props.countryData.name);
-            return {
-                name: this.props.countryData.name,
-            };
+        componentDidMount: function () {
+            this.props.GDP.on('sync', function () {
+                this.setState(this.props.GDP.options);
+            }.bind(this));
         },
 
-        // updateData: function (country) {
-            // this.setState({ country: country });
-            // _.extend(this.props.countryData.options, { country: country });
-            // this.props.countryData.reset();
-            // return this.props.countryData.fetch();
-        // },
+        componentWillUnmount: function () {
+            this.props.GDP.off(null, null, this);
+        },
+
+        getInitialState: function () {
+            return this.props.GDP.options;
+        },
 
         render: function() {
             return (
                 <div>
-                    <Breadcrumb section={this.state.name} />
+                    <NavBar />
+                    <Breadcrumb section={this.state.country.name} />
+                    <Table title={this.state.country.name} data={this.props.GDP} />
                 </div>
             );
         }
@@ -39,13 +38,7 @@ define([
     });
 
     return App;
-                    // <NavBar
-                    //     country={this.state.country}
-                    //     countriesList={this.props.countriesList}
-                    //     countryData={this.props.countryData}
-                    //     updateData={this.updateData} />
-                    // <Table
-                    //     countryName={this.state.country.name}
-                    //     countryData={this.props.countryData} />
+
+
 
 });

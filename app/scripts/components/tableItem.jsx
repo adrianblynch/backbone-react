@@ -1,12 +1,9 @@
 /*global define*/
 
-define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'react'
-], function ($, _, Backbone, React, BackboneMixin) {
+define(function (require) {
     'use strict';
+
+    var React = require('react');
 
     var TableItem = React.createClass({
 

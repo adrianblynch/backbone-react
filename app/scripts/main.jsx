@@ -34,7 +34,20 @@ require.config({
 });
 
 define(function (require) {
+
+    require('util/ajaxLoader');
+    var React = require('react');
     var Backbone = require('backbone');
     var router = require('mainRouter');
+    var App = require('components/app');
+    var GDPCollection = require('collections/GDPCollection');
+
+    React.render(
+        <div className="col-sm-12">
+            <App GDP={GDPCollection} />
+        </div>,
+    document.getElementById('app'));
+
     Backbone.history.start();
+
 });

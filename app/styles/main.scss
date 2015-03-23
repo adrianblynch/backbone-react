@@ -2,35 +2,17 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstr
 
 @import 'bootstrap-sass-official/assets/stylesheets/bootstrap.scss';
 
+@mixin visible { display: block; visibility: visible; }
+@mixin invisible { display: none; visibility: hidden; }
+
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+    .navbar .navBarOptions { @include visible; }
+    &.loading .navbar .navBarOptions { @include invisible; }
+    .navbar .ajaxLoader {
+        margin-top: 14px;
+        @include invisible;
+    }
+    &.loading .navbar .ajaxLoader { @include visible; }
 }
-
-.navbar {
-	.ajaxLoader {
-    	margin-top: 14px;
-	}
-}
-
-.jumbotron {
-    text-align: center;
-	.btn {
-		font-size: 21px;
-		padding: 14px 24px;
-	}
-
-	table {
-		table th.amount,
-		table td.amount {
-			text-align: left;
-		}
-		th {
-			text-align: center;
-			&.amount {
-
-			}
-		}
-	}
-}
-
