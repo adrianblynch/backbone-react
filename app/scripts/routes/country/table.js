@@ -2,11 +2,12 @@
 
 define(function (require) {
 
-    var Handler = require('./handler');
+    var Handler = require('routes/handler');
 
     var TableRoute = Handler.extend({
 
-        beforeModel: function (transition) {
+        setup: function (transition) {
+            console.log('table route');
         }
 
     });

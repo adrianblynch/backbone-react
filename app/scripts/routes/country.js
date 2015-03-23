@@ -2,7 +2,7 @@
 
 define(function (require) {
 
-    var Handler = require('./handler');
+    var Handler = require('routes/handler');
     var GDPCollection = require('collections/GDPCollection');
     var countriesList = require('util/countriesList');
 

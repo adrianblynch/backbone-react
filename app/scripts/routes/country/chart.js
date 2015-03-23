@@ -2,7 +2,7 @@
 
 define(function (require) {
 
-    var Handler = require('./handler');
+    var Handler = require('routes/handler');
 
     var ChartRoute = Handler.extend({
 

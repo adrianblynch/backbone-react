@@ -7,24 +7,32 @@ define(function (require) {
     var Backbone = require('backbone');
     var Router = require('router').default;
     var router = new Router();
-//    var AppRoute = require('routes/app');
+    var AppRoute = require('routes/app');
     var IndexRoute = require('routes/index');
     var CountryRoute = require('routes/country');
-    // var TableRoute = require('routes/table');
-    // var ChartRoute = require('routes/chart');
+    var CountryIndexRoute = require('routes/country/index');
+    var TableRoute = require('routes/country/table');
+    var ChartRoute = require('routes/country/chart');
 
     var routes = {
-//        'app': new AppRoute(),
+        'app': new AppRoute(),
         'index': new IndexRoute(),
         'country': new CountryRoute(),
-        // 'table': new TableRoute(),
-        // 'chart': new ChartRoute()
+        'country.index': new CountryIndexRoute(),
+        'country.table': new TableRoute(),
+        'country.chart': new ChartRoute()
     };
 
     /* eslint no-shadow: 0 */
     router.map(function (match) {
-        match('/').to('index');
-        match('/:country').to('country');
+        match('/').to('app', function (match) {
+            match('/').to('index');
+            match('/:country').to('country', function(match) {
+                match('/').to('country.index');
+                match('/table').to('country.table');
+                match('/chart').to('country.chart');
+            });
+        });
     });
 
     router.getHandler = function (name) {

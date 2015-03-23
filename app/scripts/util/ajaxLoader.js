@@ -5,12 +5,21 @@ define(function (require) {
 
     var $ = require('jquery');
 
-    $(document)
-        .ajaxStart(function() {
+    var ajaxLoader = {
+
+        start: function () {
             $(document.body).addClass('loading');
-        })
-        .ajaxStop(function() {
+        },
+
+        stop: function () {
             $(document.body).removeClass('loading');
-        });
+        }
+
+    };
+
+    $(document).ajaxStart(ajaxLoader.start);
+    $(document).ajaxStop(ajaxLoader.stop);
+
+    return ajaxLoader;
 
 });

@@ -6,6 +6,7 @@ require.config({
         collections: './collections',
         models: './models',
         components: './components',
+        routes: './routes',
         util: './util',
         jquery: '../bower_components/jquery/dist/jquery',
         backbone: '../bower_components/backbone/backbone',
@@ -34,20 +35,8 @@ require.config({
 });
 
 define(function (require) {
-
     require('util/ajaxLoader');
-    var React = require('react');
     var Backbone = require('backbone');
     var router = require('mainRouter');
-    var App = require('components/app');
-    var GDPCollection = require('collections/GDPCollection');
-
-    React.render(
-        <div className="col-sm-12">
-            <App GDP={GDPCollection} />
-        </div>,
-    document.getElementById('app'));
-
     Backbone.history.start();
-
 });
