@@ -6,11 +6,22 @@ define(function (require) {
 
     var IndexRoute = Handler.extend({
 
-        beforeModel: function (transition) {
-            console.log('country index');
-            // transition.router.replaceURL('table');
-            // transition.router.transitionTo('country.table');
+        model: function () {
+            console.log('model country-index');
+        },
+
+        enter: function () {
+            console.log('enter country-index');
+        },
+
+        setup: function () {
+            console.log('setup country-index');
+        },
+
+        exit: function () {
+            console.log('exit country-index');
         }
+
 
 	});
 

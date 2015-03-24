@@ -9,10 +9,24 @@ define(function (require) {
 
     var AppRoute = Handler.extend({
 
-        beforeModel: function (transition) {
-            console.log('app');
+        model: function () {
+            console.log('model app');
+        },
+
+        enter: function () {
+            console.log('enter app');
             this.el = document.getElementById('app');
-            React.render(<App GDP={GDPCollection} />, this.el);
+            React.render(
+                <App GDP={GDPCollection} />
+            , this.el);
+        },
+
+        setup: function () {
+            console.log('setup app');
+        },
+
+        exit: function () {
+            console.log('exit app ...?');
         }
 
     });

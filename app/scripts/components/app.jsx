@@ -6,7 +6,7 @@ define(function (require) {
     var React = require('react');
     var NavBar = require('components/navBar');
     var Breadcrumb = require('components/breadcrumb');
-    var Table = require('components/table');
+    // var Table = require('components/table');
     //var Chart = require('components/chart');
 
     var App = React.createClass({
@@ -30,10 +30,12 @@ define(function (require) {
                 <div>
                     <NavBar />
                     <Breadcrumb section={this.state.country.name} />
-                    <Table title={this.state.country.name} data={this.props.GDP} />
+                    <div className="outlet"></div>
                 </div>
             );
         }
+
+        // <Table title={this.state.country.name} data={this.props.GDP} />
 
     });
 

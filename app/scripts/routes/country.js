@@ -3,12 +3,15 @@
 define(function (require) {
 
     var Handler = require('routes/handler');
+    var React = require('react');
+    var Table = require('components/table');
     var GDPCollection = require('collections/GDPCollection');
     var countriesList = require('util/countriesList');
 
-    var AppRoute = Handler.extend({
+    var CountryRoute = Handler.extend({
 
         model: function (params, transition) {
+            console.log('model country');
             var country = _.find(countriesList, { code: params.country });
             if (country) {
                 GDPCollection.options.country = country;
@@ -16,11 +19,28 @@ define(function (require) {
             } else {
                 transition.router.transitionTo('index');
             }
+        },
+
+        enter: function (transition) {
+            console.log('enter country', arguments);
+            this.el = this.getParent(transition).el.querySelector('.outlet');
+            React.render(
+                <Table title={GDPCollection.options.country.name} data={GDPCollection} />
+            , this.el);
+        },
+
+        setup: function (data, transition) {
+            console.log('setup country', arguments);
+        },
+
+        exit: function () {
+            console.log('exit country');
+            React.unmountComponentAtNode(this.el);
         }
 
     });
 
-    return AppRoute;
+    return CountryRoute;
 
 });
 

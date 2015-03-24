@@ -52,7 +52,7 @@ define(function (require) {
         },
 
         parse: function (response) {
-            console.log('sync', response, 'length of data', response.data.length);
+//            console.log('sync', response, 'length of data', response.data.length);
             this.options.metadata = _.omit(response, 'data', 'column_names', 'errors');
             return _.map(response.data, function (row) {
                 return _.object(response.column_names, row);

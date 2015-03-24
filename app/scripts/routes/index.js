@@ -2,14 +2,24 @@
 
 define(function (require) {
 
-    var _ = require('underscore');
     var Handler = require('routes/handler');
-    var CountriesList = require('util/countriesList');
 
     var IndexRoute = Handler.extend({
 
-        beforeModel: function (transition) {
-            console.log('index');
+        model: function () {
+            console.log('model index');
+        },
+
+        enter: function () {
+            console.log('enter index');
+        },
+
+        setup: function () {
+            console.log('setup index');
+        },
+
+        exit: function () {
+            console.log('exit index');
         }
 
 	});

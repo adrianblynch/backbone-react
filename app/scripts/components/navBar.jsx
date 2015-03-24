@@ -14,7 +14,7 @@ define(function (require) {
             var countries = countriesList.map(function (country) {
                 return (
                     <li key={country.code}>
-                        <a href={'#' + country.code} >
+                        <a href={'#/' + country.code} >
                             {country.name}
                         </a>
                     </li>
