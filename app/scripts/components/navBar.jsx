@@ -40,9 +40,16 @@ define(function (require) {
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                         <ul className="navBarOptions nav navbar-nav navbar-right">
-                            <li><a href="#chart">Chart</a></li>
-                            <li><a href="#table">Table</a></li>
-
+                            <li>
+                                <a href="#chart">
+                                    <span className="glyphicon glyphicon-signal" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li className="active">
+                                <a href="#table">
+                                    <span className="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                                </a>
+                            </li>
                             <li className="dropdown">
                               <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 Country<span className="caret"></span>
@@ -51,8 +58,7 @@ define(function (require) {
                                 {countries}
                               </ul>
                             </li>
-                          </ul>
-
+                        </ul>
 
                         <ul className="nav navbar-nav navbar-right">
                             <div className="ajaxLoader">
