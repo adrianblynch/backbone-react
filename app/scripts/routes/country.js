@@ -25,13 +25,13 @@ define(function (require) {
             console.log('enter country', arguments);
             this.el = this.getParent(transition).el.querySelector('.outlet');
             React.render(
-                <Table collection={GDPCollection} />
+                <div id="country" className="outlet"></div>
             , this.el);
         },
 
         setup: function (data, transition) {
-            console.log('setup country', arguments);
-        },
+            console.log('setup country');
+         },
 
         exit: function () {
             console.log('exit country');

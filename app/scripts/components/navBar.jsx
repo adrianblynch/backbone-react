@@ -3,18 +3,24 @@
 define(function (require) {
     'use strict';
 
-    var $ = require('jquery');
     var React = require('react');
+    var BackboneMixin = require('util/backboneMixin');
     var countriesList = require('util/countriesList');
 
     var NavBarView = React.createClass({
+
+        mixins: [BackboneMixin],
+
+        getBackboneModels: function () {
+            return [this.props.model];
+        },
 
         render: function() {
 
             var countries = countriesList.map(function (country) {
                 return (
                     <li key={country.code}>
-                        <a href={'#/' + country.code} >
+                        <a href={'#' + country.code} >
                             {country.name}
                         </a>
                     </li>
@@ -41,12 +47,12 @@ define(function (require) {
 
                         <ul className="navBarOptions nav navbar-nav navbar-right">
                             <li>
-                                <a href="#chart">
+                                <a href={"#" + this.props.model.attributes.code + "/chart"}>
                                     <span className="glyphicon glyphicon-signal" aria-hidden="true"></span>
                                 </a>
                             </li>
                             <li className="active">
-                                <a href="#table">
+                                <a href={"#" + this.props.model.attributes.code + "/table"}>
                                     <span className="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                                 </a>
                             </li>

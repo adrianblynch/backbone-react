@@ -17,7 +17,7 @@ define(function (require) {
         render: function() {
             return (
                 <ul className="breadcrumb">
-                    <li><a href="#/">GDP</a></li>
+                    <li><a href="#">GDP</a></li>
                     <li className="active">{this.props.model.attributes.name}</li>
                 </ul>
             );

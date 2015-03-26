@@ -3,15 +3,13 @@
 define(function (require) {
 
     var Handler = require('routes/handler');
+    var Backbone = require('backbone');
 
     var IndexRoute = Handler.extend({
 
-        model: function () {
-            console.log('model country-index');
-        },
-
-        enter: function () {
+        enter: function (transition) {
             console.log('enter country-index');
+//            transition.router.transitionTo('country.table');
         },
 
         setup: function () {

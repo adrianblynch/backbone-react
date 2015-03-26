@@ -14,6 +14,7 @@ define(function (require) {
         var currentRouteIndex = _.findIndex(handlerInfos, function (handlerInfo) {
             return handlerInfo.handler === this;
         }.bind(this));
+        console.log(currentRouteIndex, this);
         if (currentRouteIndex > 0) {
             return handlerInfos[currentRouteIndex - 1].handler;
         }

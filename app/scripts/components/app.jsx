@@ -12,9 +12,9 @@ define(function (require) {
         render: function() {
             return (
                 <div>
-                    <NavBar />
+                    <NavBar model={this.props.collection.country} />
                     <Breadcrumb model={this.props.collection.country} />
-                    <div className="outlet"></div>
+                    <div id="app" className="outlet"></div>
                 </div>
             );
         }

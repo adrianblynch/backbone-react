@@ -1,18 +1,14 @@
 /*global define*/
 
-define([
-    'jquery',
-    'underscore',
-    'backbone',
-    'react',
-    'util/backboneMixin',
-], function ($, _, Backbone, React, BackboneMixin) {
+define(function (require) {
     'use strict';
+
+    var React = require('react');
 
     var Chart = React.createClass({
 
         render: function () {
-        return (
+            return (
                 <div className="jumbotron">
                     <p>Hello World</p>
                 </div>
