@@ -11,7 +11,7 @@ define(function (require) {
     var CountryRoute = Handler.extend({
 
         model: function (params, transition) {
-            console.log('model country');
+            //console.log('model country');
             var country = _.find(countriesList, { code: params.country });
             if (country) {
                 GDPCollection.country.set(country);
@@ -22,8 +22,9 @@ define(function (require) {
         },
 
         enter: function (transition) {
-            console.log('enter country', arguments);
+            console.log('enter country');
             this.el = this.getParent(transition).el.querySelector('.outlet');
+            console.log('-- country el', this.el);
             React.render(
                 <div id="country" className="outlet"></div>
             , this.el);

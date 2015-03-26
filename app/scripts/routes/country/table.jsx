@@ -12,6 +12,7 @@ define(function (require) {
         enter: function (transition) {
             console.log('enter table');
             this.el = this.getParent(transition).el.querySelector('.outlet');
+            console.log('-- table el', this.el);
             React.render(
                 <Table collection={GDPCollection} />
             , this.el);

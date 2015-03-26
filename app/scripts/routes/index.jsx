@@ -8,20 +8,20 @@ define(function (require) {
     var IndexRoute = Handler.extend({
 
         model: function () {
-            console.log('model index');
+            //console.log('model index');
             GDPCollection.reset();
         },
 
         enter: function () {
-            console.log('enter index');
+            //console.log('enter index');
         },
 
         setup: function () {
-            console.log('setup index');
+            //console.log('setup index');
         },
 
         exit: function () {
-            console.log('exit index');
+            //console.log('exit index');
         }
 
 	});

@@ -10,12 +10,13 @@ define(function (require) {
     var AppRoute = Handler.extend({
 
         model: function () {
-            console.log('model app');
+            //console.log('model app');
         },
 
         enter: function () {
-            console.log('enter app');
+            //console.log('enter app');
             this.el = document.getElementById('app');
+            console.log('-- app el', this.el);
             React.render(
                 <div>
                     <App collection={GDPCollection} />
@@ -24,11 +25,7 @@ define(function (require) {
         },
 
         setup: function () {
-            console.log('setup app');
-        },
-
-        exit: function () {
-            console.log('exit app ...?');
+            //console.log('setup app');
         }
 
     });

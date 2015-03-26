@@ -47,7 +47,9 @@ define(function (require) {
         Backbone.history.navigate(url, { trigger: false, replace: true });
     };
 
-    router.log = _.noop();
+    // router.log = function () {
+    //     window.console.log.apply(window.console, arguments);
+    // };
 
     Backbone.history.route(/.*/, router.handleURL.bind(router));
 

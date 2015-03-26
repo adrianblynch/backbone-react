@@ -14,7 +14,7 @@ define(function (require) {
                 <div>
                     <NavBar model={this.props.collection.country} />
                     <Breadcrumb model={this.props.collection.country} />
-                    <div id="app" className="outlet"></div>
+                    <div className="outlet"></div>
                 </div>
             );
         }

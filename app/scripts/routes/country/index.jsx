@@ -7,19 +7,21 @@ define(function (require) {
 
     var IndexRoute = Handler.extend({
 
-        enter: function (transition) {
-            console.log('enter country-index');
-//            transition.router.transitionTo('country.table');
+        beforeModel: function (transition) {
+            transition.router.replaceWith('country.table');
         },
 
-        setup: function () {
+        enter: function () {
+            console.log('enter country-index');
+        },
+
+        setup: function (data, transition) {
             console.log('setup country-index');
         },
 
         exit: function () {
             console.log('exit country-index');
         }
-
 
 	});
 
