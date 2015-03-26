@@ -14,7 +14,7 @@ define(function (require) {
             console.log('model country');
             var country = _.find(countriesList, { code: params.country });
             if (country) {
-                GDPCollection.options.country = country;
+                GDPCollection.country.set(country);
                 return GDPCollection.fetch();
             } else {
                 transition.router.transitionTo('index');
@@ -25,7 +25,7 @@ define(function (require) {
             console.log('enter country', arguments);
             this.el = this.getParent(transition).el.querySelector('.outlet');
             React.render(
-                <Table title={GDPCollection.options.country.name} data={GDPCollection} />
+                <Table collection={GDPCollection} />
             , this.el);
         },
 

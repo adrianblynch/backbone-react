@@ -5,14 +5,14 @@ define(function (require) {
 
     var Backbone = require('backbone');
 
-    var GDPModel = Backbone.Model.extend({
+    var CountryModel = Backbone.Model.extend({
 
         defaults: {
-            'Date': null,
-            'Value': null
+            'code': null,
+            'name': null
         }
 
     });
 
-    return GDPModel;
+    return CountryModel;
 });

@@ -12,12 +12,16 @@ define(function (require) {
         mixins: [BackboneMixin],
 
         getBackboneCollections: function () {
-            return [this.props.data];
+            return [this.props.collection];
+        },
+
+        getBackboneModels: function () {
+            return [this.props.collection.country];
         },
 
         render: function() {
 
-            var tableItems = this.props.data.map(function (item) {
+            var tableItems = this.props.collection.map(function (item) {
                 return (
                     <TableItem key={item.cid} item={item} />
                 );
@@ -25,7 +29,7 @@ define(function (require) {
 
             return (
                 <div className="jumbotron">
-                    <h2>{this.props.title}</h2>
+                    <h2>{this.props.collection.country.attributes.name}</h2>
                     <br />
                     <table className="table table-hover">
                         <thead>

@@ -17,7 +17,7 @@ define(function (require) {
             console.log('enter app');
             this.el = document.getElementById('app');
             React.render(
-                <App GDP={GDPCollection} />
+                <App collection={GDPCollection} />
             , this.el);
         },
 
