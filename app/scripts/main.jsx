@@ -14,6 +14,7 @@ require.config({
         bootstrap: '../bower_components/sass-bootstrap/dist/js/bootstrap',
         react: '../bower_components/react/react',
         moment: '../bower_components/moment/moment',
+        d3: '../bower_components/d3/d3',
         router: '../bower_components/router.js/dist/router.amd',
         'original-route-recognizer': '../bower_components/route-recognizer/dist/route-recognizer',
         'original-rsvp': '../bower_components/rsvp/rsvp'

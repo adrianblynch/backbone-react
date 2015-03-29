@@ -9,17 +9,16 @@ define(function (require) {
     var ChartRoute = Handler.extend({
 
         enter: function (transition) {
-            console.log('enter chart ->', transition, this.getParent(transition));
+            console.log('enter chart');
             this.el = this.getParent(transition).el.querySelector('.outlet');
             React.render(
-                <p>Hello World</p>
+                <Chart />
             , this.el);
         },
 
         setup: function (transition) {
             console.log('setup chart');
         },
-//                <Chart />
 
         exit: function () {
             console.log('exit chart');
