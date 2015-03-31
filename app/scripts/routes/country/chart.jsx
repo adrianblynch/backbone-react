@@ -4,6 +4,7 @@ define(function (require) {
 
     var Handler = require('routes/handler');
     var Chart = require('components/chart');
+    var GDPCollection = require('collections/GDPCollection');
     var React = require('react');
 
     var ChartRoute = Handler.extend({
@@ -12,7 +13,7 @@ define(function (require) {
             console.log('enter chart');
             this.el = this.getParent(transition).el.querySelector('.outlet');
             React.render(
-                <Chart />
+                <Chart collection={GDPCollection} />
             , this.el);
         },
 

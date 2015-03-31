@@ -8,7 +8,7 @@ define(function (require) {
     var IndexRoute = Handler.extend({
 
         beforeModel: function (transition) {
-            transition.router.replaceWith('country.table');
+            transition.router.replaceWith('country.chart');
         },
 
         enter: function () {
