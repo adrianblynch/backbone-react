@@ -23,7 +23,8 @@ define(function (require) {
                     placeholder: 'Select a country'
                 })
                 .on('select2:select', function (e) {
-                    Backbone.history.navigate('#' + e.params.data.id + '/chart', { trigger: true });
+                    var mode = location.hash.match(/\/table/) ? 'table' : 'chart';
+                    Backbone.history.navigate('#' + e.params.data.id + '/' + mode, { trigger: true });
                 });
         },
 
