@@ -32,6 +32,8 @@ define(function (require) {
 
         setup: function (data, transition) {
             console.log('setup country');
+            var country = GDPCollection.country.toJSON();
+            $('nav select.selectCountry').val(country.code).trigger('change');
          },
 
         exit: function () {

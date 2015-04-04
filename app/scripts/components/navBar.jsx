@@ -18,8 +18,10 @@ define(function (require) {
         },
 
         componentDidMount: function () {
-            $('.select2')
-                .select2({ placeholder: 'Select a country' })
+            $('.selectCountry')
+                .select2({
+                    placeholder: 'Select a country'
+                })
                 .on('select2:select', function (e) {
                     Backbone.history.navigate('#' + e.params.data.id + '/chart', { trigger: true });
                 });
@@ -61,7 +63,7 @@ define(function (require) {
                             </a>
                         </li>
                         <li>
-                          <select className="select2" onChange={this.changeCountry}>
+                          <select className="selectCountry">
                             <option></option>
                             {countries}
                           </select>
