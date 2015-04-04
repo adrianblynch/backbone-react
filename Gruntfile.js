@@ -162,11 +162,13 @@ module.exports = function (grunt) {
                     baseUrl: '.tmp/scripts',
                     paths: {
                         jquery: '../../<%= yeoman.app %>/bower_components/jquery/dist/jquery',
+                        select2: '../../<%= yeoman.app %>/bower_components/select2-dist/dist/js/select2',
                         backbone: '../../<%= yeoman.app %>/bower_components/backbone/backbone',
                         underscore: '../../<%= yeoman.app %>/bower_components/lodash/dist/lodash',
                         bootstrap: '../../<%= yeoman.app %>/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap',
                         react: '../../<%= yeoman.app %>/bower_components/react/react',
                         moment: '../../<%= yeoman.app %>/bower_components/moment/moment',
+                        d3: '../../<%= yeoman.app %>/bower_components/d3/d3',
                         router: '../../<%= yeoman.app %>/bower_components/router.js/dist/router.amd',
                         'original-route-recognizer': '../../<%= yeoman.app %>/bower_components/route-recognizer/dist/route-recognizer',
                         'original-rsvp': '../../<%= yeoman.app %>/bower_components/rsvp/rsvp'
@@ -230,7 +232,7 @@ module.exports = function (grunt) {
                         '*.{ico,txt}',
                         'images/{,*/}*.{webp,gif}',
                         'styles/fonts/{,*/}*.*',
-                        'bower_components/sass-bootstrap/fonts/*.*',
+                        'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*.*',
                         'bower_components/requirejs/require.js'
                     ]
                 }, {
