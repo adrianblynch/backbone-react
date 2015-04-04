@@ -19,12 +19,9 @@ body {
         display: block;
         margin: auto;
     }
-    .bar {
-      fill: CadetBlue;
-    }
 
     .bar:hover {
-      fill: lighten(CadetBlue, 10%);;
+      opacity: 0.5;
     }
 
     .axis {

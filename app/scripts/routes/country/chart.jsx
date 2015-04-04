@@ -10,7 +10,6 @@ define(function (require) {
     var ChartRoute = Handler.extend({
 
         enter: function (transition) {
-            console.log('enter chart');
             this.el = this.getParent(transition).el.querySelector('.outlet');
             React.render(
                 <Chart collection={GDPCollection} />

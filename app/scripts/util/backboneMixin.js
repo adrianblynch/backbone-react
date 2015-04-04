@@ -13,7 +13,7 @@ define(function () {
                     // explicitly bind `null` to `forceUpdate`, as it demands a callback and
                     // React validates that it's a function. `collection` events passes
                     // additional arguments that are not functions
-                    collection.on('add remove reset', this.forceUpdate.bind(this, null), this);
+                    collection.on('sync', this.forceUpdate.bind(this, null), this);
                 }, this);
             }
             if (this.getBackboneModels) {
