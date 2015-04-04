@@ -10,13 +10,16 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstr
 body {
     padding-top: 20px;
     padding-bottom: 20px;
-    .navbar .navBarOptions { @include visible; }
-    &.loading .navbar .navBarOptions { @include invisible; }
+
     .navbar .ajaxLoader {
         margin-top: 14px;
-        @include invisible;
     }
+
+    .navbar .navBarOptions { @include visible; }
+    &.loading .navbar .navBarOptions { @include invisible; }
+    .navbar .ajaxLoader { @include invisible; }
     &.loading .navbar .ajaxLoader { @include visible; }
+
     .navbar .select2 {
         margin-top: 10px;
         margin-left: 10px;

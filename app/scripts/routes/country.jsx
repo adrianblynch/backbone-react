@@ -33,12 +33,15 @@ define(function (require) {
         setup: function (data, transition) {
             console.log('setup country');
             var country = GDPCollection.country.toJSON();
+            $('.visualizationOptions').removeClass('hidden');
             $('nav select.selectCountry').val(country.code).trigger('change');
          },
 
         exit: function () {
             console.log('exit country');
             React.unmountComponentAtNode(this.el);
+            $('nav select.selectCountry').val('').trigger('change');
+            $('.visualizationOptions').addClass('hidden');
         }
 
     });

@@ -18,6 +18,8 @@ define(function (require) {
 
         setup: function (transition) {
             console.log('setup chart');
+            $('.selectChart').addClass('active');
+            $('.selectTable').removeClass('active');
         },
 
         exit: function () {

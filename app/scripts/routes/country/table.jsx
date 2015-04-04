@@ -20,6 +20,8 @@ define(function (require) {
 
         setup: function (transition) {
             console.log('setup table');
+            $('.selectTable').addClass('active');
+            $('.selectChart').removeClass('active');
         },
 
         exit: function () {

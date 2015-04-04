@@ -53,20 +53,23 @@ define(function (require) {
 
                     <ul className="navBarOptions nav navbar-nav navbar-right">
                         <li>
-                            <a href={"#" + this.props.model.attributes.code + "/chart"}>
-                                <span className="glyphicon glyphicon-signal" aria-hidden="true"></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href={"#" + this.props.model.attributes.code + "/table"}>
-                                <span className="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-                            </a>
-                        </li>
-                        <li>
                           <select className="selectCountry">
                             <option></option>
                             {countries}
                           </select>
+                        </li>
+                    </ul>
+
+                    <ul className="navBarOptions visualizationOptions nav navbar-nav navbar-right hidden">
+                        <li className="selectChart">
+                            <a href={"#" + this.props.model.attributes.code + "/chart"}>
+                                <span className="glyphicon glyphicon-signal" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li className="selectTable">
+                            <a href={"#" + this.props.model.attributes.code + "/table"}>
+                                <span className="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                            </a>
                         </li>
                     </ul>
 
