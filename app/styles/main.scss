@@ -5,6 +5,8 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/assets/fonts/bootstr
 @mixin visible { display: block; visibility: visible; }
 @mixin invisible { display: none; visibility: hidden; }
 
+.container { width: $container-desktop !important; }
+
 body {
     padding-top: 20px;
     padding-bottom: 20px;
