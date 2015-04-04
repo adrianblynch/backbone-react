@@ -19,6 +19,13 @@ define(function (require) {
             return [this.props.collection.country];
         },
 
+        componentDidMount: function () {
+            var el = this.getDOMNode();
+            setTimeout(function() {
+                $(el).addClass('in');
+            }, 10);
+        },
+
         render: function() {
 
             var tableItems = this.props.collection.map(function (item) {
@@ -28,7 +35,7 @@ define(function (require) {
             }, this);
 
             return (
-                <div className="jumbotron">
+                <div className="jumbotron fade">
                     <h2>{this.props.collection.country.attributes.name}</h2>
                     <p className="text-muted">GDP at current prices, local currency units</p>
                     <br />
