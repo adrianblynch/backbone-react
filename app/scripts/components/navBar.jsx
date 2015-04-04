@@ -4,8 +4,10 @@ define(function (require) {
     'use strict';
 
     var React = require('react');
+    var Backbone = require('backbone');
     var BackboneMixin = require('util/backboneMixin');
     var countriesList = require('util/countriesList');
+    require('select2');
 
     var NavBarView = React.createClass({
 
@@ -15,16 +17,21 @@ define(function (require) {
             return [this.props.model];
         },
 
-        render: function() {
+        componentDidMount: function () {
+            $('.select2')
+                .select2({ placeholder: 'Select a country' })
+                .on('select2:select', function (e) {
+                    Backbone.history.navigate('#' + e.params.data.id + '/chart', { trigger: true });
+                });
+        },
 
+        changeCountry: function(event) {
+            console.log("change country: ", event);
+        },
+
+        render: function() {
             var countries = countriesList.map(function (country) {
-                return (
-                    <li key={country.code}>
-                        <a href={'#' + country.code} >
-                            {country.name}
-                        </a>
-                    </li>
-                );
+                return (<option key={country.code} value={country.code}>{country.name}</option>);
             }, this);
 
             return (
@@ -53,13 +60,11 @@ define(function (require) {
                                 <span className="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                             </a>
                         </li>
-                        <li className="dropdown">
-                          <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            Country<span className="caret"></span>
-                          </a>
-                          <ul className="dropdown-menu" role="menu">
+                        <li>
+                          <select className="select2" onChange={this.changeCountry}>
+                            <option></option>
                             {countries}
-                          </ul>
+                          </select>
                         </li>
                     </ul>
 

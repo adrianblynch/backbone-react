@@ -9,6 +9,7 @@ require.config({
         routes: './routes',
         util: './util',
         jquery: '../bower_components/jquery/dist/jquery',
+        select2: '../bower_components/select2-dist/dist/js/select2',
         backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/lodash/dist/lodash',
         bootstrap: '../bower_components/sass-bootstrap/dist/js/bootstrap',
@@ -30,6 +31,9 @@ require.config({
         bootstrap: {
             deps: ['jquery'],
             exports: 'jquery'
+        },
+        select2: {
+            deps: ['jquery'],
         }
     },
     waitSeconds: 0

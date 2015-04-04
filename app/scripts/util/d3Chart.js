@@ -52,8 +52,6 @@ define(function (require) {
             var oldColor = color;
             color = pickColor(colors, oldColor);
 
-            console.log(oldColor, color);
-
             var d = data.sort(function (a, b) {
                 return d3.ascending(getYear(a['Date']), getYear(b['Date']));
             });

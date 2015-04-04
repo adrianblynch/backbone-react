@@ -17,6 +17,10 @@ body {
         @include invisible;
     }
     &.loading .navbar .ajaxLoader { @include visible; }
+    .navbar .select2.select2-container {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
     .chart svg {
         display: block;
         margin: auto;

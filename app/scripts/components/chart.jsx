@@ -15,10 +15,6 @@ define(function (require) {
             return [this.props.collection];
         },
 
-        // getBackboneModels: function () {
-        //     return [this.props.collection.country];
-        // },
-
         componentDidMount: function() {
             console.log("react mount");
             var el = this.getDOMNode();
@@ -33,14 +29,11 @@ define(function (require) {
             d3Chart.update(el, data);
         },
 
-        componentWillUnmount: function() {
-            // on exit
-        },
-
         render: function() {
             return (
                 <div>
-                    <h2>GDP at current prices, local currency units</h2>
+                    <h2>{this.props.collection.country.attributes.name}</h2>
+                    <p className="text-muted">GDP at current prices, local currency units</p>
                     <br />
                     <div className='chart'></div>
                 </div>

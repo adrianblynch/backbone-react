@@ -30,6 +30,7 @@ define(function (require) {
             return (
                 <div className="jumbotron">
                     <h2>{this.props.collection.country.attributes.name}</h2>
+                    <p className="text-muted">GDP at current prices, local currency units</p>
                     <br />
                     <table className="table table-hover">
                         <thead>
