@@ -15,7 +15,7 @@ define(function (require) {
             return (
                 <tr>
                     <td className="text-muted">{year}</td>
-                    <td className="amount">{value} $bn</td>
+                    <td className="amount">{value} Billions</td>
                 </tr>
             );
         }
