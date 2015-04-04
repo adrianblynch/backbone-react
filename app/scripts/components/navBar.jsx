@@ -48,7 +48,7 @@ define(function (require) {
                                 <span className="glyphicon glyphicon-signal" aria-hidden="true"></span>
                             </a>
                         </li>
-                        <li className="active">
+                        <li>
                             <a href={"#" + this.props.model.attributes.code + "/table"}>
                                 <span className="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                             </a>
