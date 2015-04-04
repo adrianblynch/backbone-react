@@ -49,7 +49,10 @@ define(function (require) {
         update: function (el, data) {
             console.log("UPDATE");
 
-            color = pickColor(colors, color);
+            var oldColor = color;
+            color = pickColor(colors, oldColor);
+
+            console.log(oldColor, color);
 
             var d = data.sort(function (a, b) {
                 return d3.ascending(getYear(a['Date']), getYear(b['Date']));
@@ -77,15 +80,17 @@ define(function (require) {
                 .attr('class', 'bar')
                 .attr('x', function(d) { return x(getYear(d['Date'])); })
                 .attr('width', x.rangeBand())
-                .attr('fill', color)
+                .attr('fill', oldColor)
                 .attr('y', height)
                 .attr('height', 0);
 
-            bar.transition()
-                .duration(1000)
-                .attr('fill', color)
-                .attr('y', function(d) { return y(d['Value']); })
-                .attr('height', function(d) { return height - y(d['Value']); });
+            bar
+                .attr('width', x.rangeBand())
+                .attr('x', function(d) { return x(getYear(d['Date'])); })
+                .transition().duration(1000)
+                    .attr('fill', color)
+                    .attr('y', function(d) { return y(d['Value']); })
+                    .attr('height', function(d) { return height - y(d['Value']); });
 
             bar.exit()
                 .remove();
@@ -100,7 +105,7 @@ define(function (require) {
     }
 
     function pickColor(colors, color) {
-        var colorList = colors;
+        var colorList = colors.slice();
         if (color && colors.indexOf(color) !== -1) {
             colorList.splice(colors.indexOf(color), 1);
         }
