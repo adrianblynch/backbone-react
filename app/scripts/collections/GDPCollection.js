@@ -25,14 +25,14 @@ define(function (require) {
             this.metadata = new GDPMetadataModel();
         },
 
-        fetch: function () {
-            return Backbone.Collection.prototype.fetch.call(this, arguments);
+        fetch: function (options) {
+            var extendedOptions = _.extend({ reset: true }, options);
+            return Backbone.Collection.prototype.fetch.call(this, extendedOptions);
         },
 
-        reset: function () {
+        clean: function () {
             this.country.set(CountryModel.prototype.defaults);
             this.metadata.set(GDPMetadataModel.prototype.defaults);
-            return Backbone.Collection.prototype.reset.apply(this, arguments)
         },
 
         parse: function (response) {
