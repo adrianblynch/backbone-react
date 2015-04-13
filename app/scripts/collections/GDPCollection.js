@@ -37,9 +37,12 @@ define(function (require) {
 
         parse: function (response) {
             this.metadata.set(_.omit(response, 'data', 'column_names', 'errors'));
-            return _.map(response.data, function (row) {
+            var convertedData = _.map(response.data, function (row) {
+                if (row.length === 3) { row[1] = row[1] * 1000 + row.pop(); }
                 return _.object(response.column_names, row);
             });
+            console.log(convertedData);
+            return convertedData;
         }
 
     });
